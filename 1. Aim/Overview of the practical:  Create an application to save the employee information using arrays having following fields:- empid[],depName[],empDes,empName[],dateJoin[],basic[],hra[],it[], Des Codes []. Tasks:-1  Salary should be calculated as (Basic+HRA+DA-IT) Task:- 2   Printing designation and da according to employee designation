@@ -1,0 +1,63 @@
+import java.util.*;
+public class Main
+{
+public static void main(String[] args)
+{
+Scanner sc= new Scanner(System.in);
+int f=0,pos =0,da=0,salary;
+String des=null;
+char empDes=' ';
+String empid[]={"1001","1002","1003","1004","1005"};
+String depName[]={"PL","ACCOUNTS","HR","AIT","MANAGING"}; 
+String empName[]={"ravi","Avisha","Parikshit","ANSHIKA","SIYA",};
+String dateJoin[]={"1/04/2009","7/04/20011","19/04/2009","21/05/2013","1/05/2010"};
+int basic[]={25600,21700,32100,54800,13500};
+int hra[]={8450,3560,2600,49900,2400};
+int it[]={3450,1000,1200,2509,600};
+char descodes[]={'a','b','c','d','e'};
+System.out.println("Enter the employee id for cal the salary");
+String a= sc.next();
+for(int i=0;i<empid.length;i++)
+{
+if(empid[i].equals(a))
+{
+f=1;
+pos=i;
+empDes= descodes[i];
+break;
+}
+}
+if(f==0)
+{
+System.out.println("EMPLOYEE ID ENTERED IS WRONG");
+}
+else
+{
+switch(empDes)
+{
+case 'a':
+des="ENGINEER";
+da=20000;
+break;
+case 'b':
+des="CONSULTANT";
+da=28000;
+break;
+case 'c':
+des="CLERK";
+da=35000;
+break;
+case 'd':
+des="RECEPTIONIST";
+da=36000;
+break;
+case 'e':
+des="MANAGER";
+da=45000;
+}
+salary=(basic[pos]+hra[pos]+da)-it[pos];
+System.out.println("EMPLOYEE ID"+"\t"+"EMPLOYEE NAME"+"\t"+"DEPARTEMENT NAME"+"\t"+"DESIGNATION"+"\t"+"SALARY");
+System.out.println(empid[pos]+"\t\t"+empName[pos]+"\t\t\t"+depName[pos]+"\t\t"+des+"\t"+salary);
+}
+}
+}
